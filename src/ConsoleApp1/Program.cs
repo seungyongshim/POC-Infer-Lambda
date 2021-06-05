@@ -9,9 +9,7 @@ namespace ConsoleApp1
     {
         private static async Task Main()
         {
-            Func<int, int> plus(int x) => y => x + y;
-
-            var ret = await Task.FromResult(1).Select(plus(2));
+            var ret = await Task.FromResult(1).SelectMany(x => Task.FromResult(x.ToString()));
 
             Console.WriteLine(ret);
         }
